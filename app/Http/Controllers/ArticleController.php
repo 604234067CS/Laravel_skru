@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class ArticleController extends Controller
 {
@@ -15,6 +16,10 @@ class ArticleController extends Controller
     {
         $data['title'] = "บทความ";
         $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอปพลิเคชัน";
+        $data['articles'] = Article::all();
+        
+        // dd($data['articles']);
+        // exit;
        return view('Article.index',$data);
     }
 
@@ -47,8 +52,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-       
-        return view('Article.show');
+        
+        $data['articles'] = Article::fine($id);
+        return view('Article.show',$data);
     }
 
     /**

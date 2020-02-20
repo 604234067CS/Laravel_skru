@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
+        //สร้าง field ข้อมูลในการสร้างข้อมูลจำลอง
         'title'     => $faker->text(50),
         'url'       => "",
         'target'    => "",

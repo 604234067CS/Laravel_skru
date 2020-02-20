@@ -11,6 +11,7 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
+        //จำลองข้อมูลในฐานข้อมูล
         factory(App\Article::class,1000)->create();
     }
 }
