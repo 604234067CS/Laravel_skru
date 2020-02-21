@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Member index </title>
-</head>
-<body>
-  <h2><?php
-  echo $title;
-  ?></h2>
-  <p><?php echo $subtitle ?> : ทั้งหมด
-  <p><?php echo $counter ?> : รายการ
-  </p> 
-</body>
+   <head>
+       <title>Laravel 6 -  Member</title>
+       <meta charset="UTF-8">
+   </head>
+   <body>
+       <h1><?php echo $title;?></h1>
+       <p><?php echo $subtitle;?> ทั้งหมด <?php echo $counter;?> รายการ</p>
+   </body>
 </html>

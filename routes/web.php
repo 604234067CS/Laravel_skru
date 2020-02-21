@@ -14,29 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/Hello', function () {
-//     return 'Hello Laravel 6';
-// });
- 
-//Controller Member
-Route::get('members','MemberController@index' );
-Route::get('member/add','MemberController@add');
 
-//Controller Article
-Route::get('Articles','ArticleController@index') -> name('Article.index');
-Route::get('Article/add','ArticleController@create') -> name('Article.add');
-Route::get('Article/edit{id}','ArticleController@edit') -> name('Article.edit');
-Route::get('Article/delete{id}','ArticleController@destroy') ->name('Article.delete');
-Route::get('Article/show{id}','ArticleController@show') ->name('Article.show');
+Route::get('/hello', function () {
+    return 'Hello laravel 6';
+});
 
-
-//สร้างรันหน้า view
-Route::get('/Customers', function () {
-    return view('customer.index');
-});
-Route::get('/Customer/add', function () {
-    return view('customer.add');
-});
-Route::get('/Customer/edit', function () {
-    return view('customer.edit');
-});
+Route::get('articles', 'ArticleController@index')->name('articles');
+Route::get('article/add', 'ArticleController@create')->name('article.add');
+Route::post('articles', 'ArticleController@store')->name('article.store');
+Route::get('article/edit/{id}', 'ArticleController@edit')->name('article.edit');
+Route::put('article/edit/{id}', 'ArticleController@update')->name('article.update');
+Route::delete('article/destroy/{id}', 'ArticleController@destroy')->name('article.destroy');
+Route::get('article/show/{id}', 'ArticleController@show')->name('article.show');

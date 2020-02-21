@@ -1,22 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-</style>
-</head>
-<body>
-
-<h2>Table Caption</h2>
-<p>To add a caption to a table, use the caption tag.</p>
-
-
-</body>
+<html lang="en">
+   <head>
+       <title>Laravel 6 - Customer</title>
+       <meta charset="UTF-8">
+   </head>
+   <body>
+       <h1>Welcom to Laravel 6</h1>
+       <p>This is Customer Page</p>
+   </body>
 </html>

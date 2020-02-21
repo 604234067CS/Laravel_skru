@@ -20,10 +20,10 @@ class CreateArticlesTable extends Migration
 
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('url');
-            $table->string('target');
-            $table->string('slug');
-            $table->string('details')->comment('รายละเอียด');
+            $table->string('url')->nullable();
+            $table->string('target')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('details')->comment('รายละเอียด');
             $table->string('author')->comment('ผู้เขียน');
             $table->string('date');
             $table->integer('view')->default(15);

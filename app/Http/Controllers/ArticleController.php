@@ -14,13 +14,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $data['title'] = "บทความ";
-        $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอปพลิเคชัน";
+        $data['title'] = "บทความของฉัน";
+        $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอพพลิเคชั่นด้วย Laravel Framwork v6";
         $data['articles'] = Article::all();
-        
-        // dd($data['articles']);
-        // exit;
-       return view('Article.index',$data);
+
+        return view('article.index', $data);
     }
 
     /**
@@ -30,7 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('Article.add');
+        $data['title'] = "บทความของฉัน";
+        $data['subtitle'] = "สร้างรายการใหม่";
+
+        return view('article.add', $data);
     }
 
     /**
@@ -41,7 +42,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->input());
+        $article = new Article();
+        $article->title = $request->input('title');
+        $article->date = $request->input('date');
+        $article->author = $request->input('author');
+        $article->details = $request->input('details');
+        $article->save();
+
+        return redirect()->route('article.add')->with('message', 'บันทึกข้อมูลได้สำเร็จ');
     }
 
     /**
@@ -52,9 +61,11 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        
-        $data['articles'] = Article::fine($id);
-        return view('Article.show',$data);
+        $data['title'] = "บทความของฉัน";
+        $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอพพลิเคชั่นด้วย Laravel Framwork v6";
+        $data['article'] = Article::find($id);
+
+        return view('article.show', $data);
     }
 
     /**
@@ -65,7 +76,11 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return view('Article.edit');
+        $data['title'] = "บทความของฉัน";
+        $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอพพลิเคชั่นด้วย Laravel Framwork v6";
+        $data['article'] = Article::findOrFail($id);
+
+        return view('article.edit', $data);
     }
 
     /**
@@ -77,7 +92,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::findOrFail($id);
+        $article->title = $request->input('title');
+        $article->date = $request->input('date');
+        $article->author = $request->input('author');
+        $article->details = $request->input('details');
+        $article->save();
+
+        return redirect()->route('articles')->with('message', 'แก้ไขข้อมูลได้สำเร็จ');
     }
 
     /**
@@ -88,6 +110,9 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        $article->delete();
+
+        return redirect()->route('articles');
     }
 }

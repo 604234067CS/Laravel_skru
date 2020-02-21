@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>show DATA</title>
-</head>
-<body>
-        <li>ID      : {{$article->id}}</li>
-        <li>TITLE   : {{$article->title}}</li>
-        <li>DETAILS : {{$article->details}}</li>
-        <li>DATE    : {{$article->date}}</li>
-        <li>AUTHOR  : {{$article->author}}</li>
-        <li>COVER   : {{$article->cover}}</li>
-        <li>VIEW    : {{$article->view}}</li>
-
-</body>
+   <head>
+       <title>Laravel 6 - Article</title>
+       <meta charset="UTF-8">
+   </head>
+   <body>
+       <h1>{{ $title }}</h1>
+       <p>{{ $subtitle }}</p>
+        <ul>
+            <li>ID : {{ $article->id }}</li>
+            <li>Title : {{ $article->title }}</li>
+            <li>Url : {{ $article->url }}</li>
+            <li>Slug url : {{ $article->slug }}</li>
+            <li>Target : {{ $article->target }}</li>
+            <li>Detail  : {{ $article->details }}</li>
+            <li>Author  : {{ $article->author }}</li>
+            <li>Date  : {{ $article->date }}</li>
+            <li>Counter View  : {{ $article->view }}</li>
+            <li>Cover : {{ $article->cover }}</li>
+            <li>Created at : {{ $article->created_at }}</li>
+            <li>Udated at : {{ $article->updated_at }}</li>
+        </ul>
+        <a href="{{ route('articles') }}">Back</a>
+   </body>
 </html>
