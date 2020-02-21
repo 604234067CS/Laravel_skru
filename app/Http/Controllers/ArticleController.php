@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Chche;
 use App\Article;
 
 class ArticleController extends Controller
@@ -16,6 +17,7 @@ class ArticleController extends Controller
     {
         $data['title'] = "บทความของฉัน";
         $data['subtitle'] = "บทความเกี่ยวกับการพัฒนาเว็บแอพพลิเคชั่นด้วย Laravel Framwork v6";
+        $data['articles'] = "Cache";
         $data['articles'] = Article::all();
 
         return view('article.index', $data);
